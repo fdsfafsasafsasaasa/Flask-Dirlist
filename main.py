@@ -6,6 +6,7 @@ import os
 
 app = Flask(__name__, template_folder=".")
 auth = HTTPBasicAuth()
+
 DIRECTORIES = [
     "movies",
     "torrents"
@@ -16,6 +17,10 @@ USERS = {
 }
 
 CONTENT_PATH = "content"
+
+HOST = "127.0.0.1"
+
+PORT = 5000
 
 @auth.verify_password
 def verify_password(username, password):
@@ -40,4 +45,4 @@ def get_directory(directory):
 def get_directory_file(directory, file):
     return send_from_directory(directory=os.path.join(CONTENT_PATH, directory), filename=file, as_attachment=True)
 
-app.run()
+app.run(HOST, PORT)
