@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <link rel='icon' href='favicon.ico' type='image/x-icon'/>
+    </head>
+    <body>
+        <h1>Directory List</h1>
+        <ul>
+            {% for directory in folders %}
+                <li>
+                    <a href="{{directory}}">{{directory}}</a>
+                </li>
+                <hr>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
